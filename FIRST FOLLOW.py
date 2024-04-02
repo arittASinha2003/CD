@@ -38,12 +38,30 @@ def follow(grammar, term, checked=None):
 #     'S': ['*FS', 'ε'],
 #     'F': ['(E)', 'i']
 # }
+# Output:
+# FIRST(E) = {'(', 'i'}
+# FOLLOW(E) = {')', '$'}
+# FIRST(G) = {'ε', '+'}
+# FOLLOW(G) = {')', '$'}
+# FIRST(T) = {'(', 'i'}
+# FOLLOW(T) = {'ε', '+'}
+# FIRST(S) = {'*', 'ε'}
+# FOLLOW(S) = {'ε', '+'}
+# FIRST(F) = {'(', 'i'}
+# FOLLOW(F) = {'*', 'ε'}
 
 grammar = {
     'E': ['AB'],
     'A': ['ilove'],
     'B': ['jtptutorials']
 }
+# Output:
+# FIRST(E) = {'i'}
+# FOLLOW(E) = {'$'}
+# FIRST(A) = {'i'}
+# FOLLOW(A) = {'j'}
+# FIRST(B) = {'j'}
+# FOLLOW(B) = {'$'}
 
 for non_terminal in grammar:
     print(f'FIRST({non_terminal}) = {first(grammar, non_terminal)}')
